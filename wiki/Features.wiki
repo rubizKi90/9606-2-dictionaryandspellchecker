@@ -1,0 +1,12 @@
+#summary One-sentence summary of this page.
+
+= Features =
+
+This application has a built in auto suggest feature which looks for words that has similar letter combinations.
+
+Built-in spell checker feature, checks if a word is spelled correctly.
+
+Dictionary's functionality- describes/gives meaning of a word.
+
+Thesaurus' functionality- provides synonyms of a given word.
+
