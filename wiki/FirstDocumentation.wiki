@@ -1,0 +1,14 @@
+Spell check and providing definition of correct spelled words.
+
+= Introduction =
+
+Utility programs, commonly referred to as just "utilities," are software programs that add functionality to your computer or help your computer perform better.
+
+Dictionary and Spell checker is a utility program that allows a user to search a word
+
+= Details =
+
+Add your content here.  Format your content with:
+  * Text in *bold* or _italic_
+  * Headings, paragraphs, and lists
+  * Automatic links to other wiki pages
