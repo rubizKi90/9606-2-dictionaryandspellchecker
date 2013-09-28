@@ -1,4 +1,4 @@
-#summary One-sentence summary of this page.
+Features of the Dictionary and Spell Checker Utility Program
 
 = Features =
 
@@ -6,4 +6,4 @@ This application has a built in auto suggest feature which looks for words that 
 
 Built-in spell checker feature, checks if a word is spelled correctly.
 
-Dictionary's functionality- describes/gives meaning of a word.
+Dictionary's functionality- provides the definition of a word.
