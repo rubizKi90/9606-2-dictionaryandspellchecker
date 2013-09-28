@@ -1,4 +1,3 @@
-
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileInputStream;
@@ -185,13 +184,13 @@ public class DictionaryAndSpellChecker extends javax.swing.JFrame {
         while(record != null){
             String[] field = record.split("\t");
             if(wordTextBox.getText().equalsIgnoreCase(field[0])){
-                String[] f = field[1].split("; ");
+                String[] meaning = field[1].split("; ");
                 resultStatusArea.setText("The word \"" + wordTextBox.getText() + "\" is correctly spelled.");
-                if(f.length == 1){
+                if(meaning.length == 1){
                     definitionArea.setText(definitionArea.getText() + field[1] + "\n");
                 } else {
-                    for(int i = 0; i < (f.length - 1); i++){
-                        definitionArea.setText(definitionArea.getText() + f[i] + "\n");
+                    for(int i = 0; i < (meaning.length - 1); i++){
+                        definitionArea.setText(definitionArea.getText() + meaning[i] + "\n");
                     }
                 }
                 
