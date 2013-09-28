@@ -4,7 +4,7 @@ Spell check and providing definition of correct spelled words.
 
 Utility programs, commonly referred to as just "utilities," are software programs that add functionality to your computer or help your computer perform better.
 
-Dictionary and Spell checker is a utility program that allows a user to search a word
+Dictionary and Spell checker is a utility program that allows a user to search a word and provide its definition. If a search word is misspelled, there are suggested words that will appear.
 
 = Details =
 
