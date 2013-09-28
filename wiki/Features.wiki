@@ -7,6 +7,3 @@ This application has a built in auto suggest feature which looks for words that 
 Built-in spell checker feature, checks if a word is spelled correctly.
 
 Dictionary's functionality- describes/gives meaning of a word.
-
-Thesaurus' functionality- provides synonyms of a given word.
-
