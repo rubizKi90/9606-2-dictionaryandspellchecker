@@ -1,0 +1,7 @@
+Describes the results and uses of each interface.
+
+= Screenshots =
+
+The first interface shows the main preview of the program. The fields are still blank. The user of the interface will input a word in the first text field and will now press the 'Search' button.
+
+The second interface shows the result of the user clicking the 'Search' button. The Result field shows if the user has correctly spelled a word. Then the Definition field will lets the user know the meaning of a certain word.
