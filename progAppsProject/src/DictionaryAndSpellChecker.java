@@ -21,12 +21,6 @@ import javax.swing.JOptionPane;
  */
 public class DictionaryAndSpellChecker extends javax.swing.JFrame {
 
-    private String record;
-    private BufferedReader textReader;
-    private boolean isCorrectlySpelled = false;
-    private ArrayList<String> suggestions = new ArrayList<>();
-    private ArrayList<String> copy = new ArrayList<>();
-    private String TASKLIST = "tasklist.exe";
 
     /**
      * Creates new form DictionaryAndSpellChecker
@@ -197,8 +191,8 @@ public class DictionaryAndSpellChecker extends javax.swing.JFrame {
             String[] wordSplit = wordTextBox.getText().split("");
             while(record != null){
                 String[] field = record.split("\t");
-                String[] reposSplit = field[0].split("");
-                if(wordSplit[1].compareToIgnoreCase(reposSplit[1]) == 0){
+                String[] lettersSplit = field[0].split("");
+                if(wordSplit[1].compareToIgnoreCase(lettersSplit[1]) == 0){
                     suggestions.add(field[0]);
                     if(wordTextBox.getText().equalsIgnoreCase(field[0])){
                         String[] meaning = field[1].split("; ");
@@ -370,4 +364,10 @@ private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRS
     private javax.swing.JButton searchButton;
     private javax.swing.JTextField wordTextBox;
     // End of variables declaration//GEN-END:variables
+    private String record;
+    private BufferedReader textReader;
+    private boolean isCorrectlySpelled = false;
+    private ArrayList<String> suggestions = new ArrayList<>();
+    private ArrayList<String> copy = new ArrayList<>();
+    private String TASKLIST = "tasklist.exe";
 }
