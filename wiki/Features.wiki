@@ -2,8 +2,10 @@ Features of the Dictionary and Spell Checker Utility Program
 
 = Features =
 
-This application has a built in auto suggest feature which looks for words that has similar letter combinations.
+Auto_suggest Feature: This application has a built in auto-suggest feature which looks for words that has similar letter combinations to the entered word. 
 
-Built-in spell checker feature, checks if a word is spelled correctly.
+Built-in Spell Checker: This feature checks the entered word if it is spelled correctly. If the word is spelled correctly, the application would confirm the spelling. 
 
-Dictionary's functionality- provides the definition of a word.
+Modify List of Words: This feature allows a user to add a word/s to the list of the dictionary with its correct definition/s. The user is also able to update the definition of the word/s and delete them.
+
+Dictionary's Functionality:  Provides the definition of the entered word.
