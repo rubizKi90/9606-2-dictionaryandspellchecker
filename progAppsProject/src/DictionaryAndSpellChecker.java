@@ -1,12 +1,10 @@
 
 import java.io.BufferedReader;
 import java.io.File;
-import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.io.UnsupportedEncodingException;
 import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -176,10 +174,7 @@ public class DictionaryAndSpellChecker extends javax.swing.JFrame {
 
     private void clearButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_clearButtonActionPerformed
         // TODO add your handling code here:
-        definitionArea.setText("");
-        resultStatusArea.setText("");
-        wordTextBox.setText("");
-        isCorrectlySpelled = false;
+        clear();
     }//GEN-LAST:event_clearButtonActionPerformed
 
     private void searchButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_searchButtonActionPerformed
@@ -188,7 +183,7 @@ public class DictionaryAndSpellChecker extends javax.swing.JFrame {
     }//GEN-LAST:event_searchButtonActionPerformed
     
     private void search(){
-        
+        copy.clear();
         try {
             definitionArea.setText("");
             resultStatusArea.setText("");
@@ -273,8 +268,6 @@ public class DictionaryAndSpellChecker extends javax.swing.JFrame {
            p.getInputStream()));
          String line;
          while ((line = reader.readLine()) != null) {
-
-          System.out.println(line);
           if (line.contains(serviceName)) {
            return true;
           } 
@@ -282,7 +275,7 @@ public class DictionaryAndSpellChecker extends javax.swing.JFrame {
 
          return false;
 
-}
+    }
     
     private void wordTextBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_wordTextBoxActionPerformed
         // TODO add your handling code here:
@@ -292,8 +285,9 @@ private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRS
 // TODO add your handling code here:
     boolean isOnList = false;
     boolean counter =true;
+    JOptionPane message = new JOptionPane();
         String serviceName = "notepad++.exe";
-        JOptionPane.showMessageDialog(null, "Please Follow the format:\n<WORD><tab><MEANING>\n\nPlease use ';' to separate one meaning to the other.\nClose Notepad after you saved the textfile.",
+        message.showMessageDialog(null, "Please Follow the format:\n<WORD><tab><MEANING>\n\nPlease use ';' to separate one meaning to the other.\nClose Notepad after you saved the textfile.",
                                         "Input Format",JOptionPane.PLAIN_MESSAGE);
 	Runtime run = Runtime.getRuntime();
         try {
@@ -315,8 +309,16 @@ private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRS
                 ex.printStackTrace();
             }
         }
+        clear();
 }//GEN-LAST:event_jButton1ActionPerformed
-
+    
+    private void clear(){
+        definitionArea.setText("");
+        resultStatusArea.setText("");
+        wordTextBox.setText("");
+        isCorrectlySpelled = false;
+    }
+    
     /**
      * @param args the command line arguments
      */
