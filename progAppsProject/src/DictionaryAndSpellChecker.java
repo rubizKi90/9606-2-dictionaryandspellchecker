@@ -7,6 +7,7 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.UnsupportedEncodingException;
+import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -24,7 +25,8 @@ public class DictionaryAndSpellChecker extends javax.swing.JFrame {
     private String record;
     private BufferedReader textReader;
     private boolean isCorrectlySpelled = false;
-    private String filename = "F:\\Dictionary & Spell Checker\\src\\Dictionary.txt";
+    private ArrayList<String> suggestions = new ArrayList<>();
+    private ArrayList<String> copy = new ArrayList<>();
 
     /**
      * Creates new form DictionaryAndSpellChecker
@@ -169,44 +171,75 @@ public class DictionaryAndSpellChecker extends javax.swing.JFrame {
 
     private void searchButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_searchButtonActionPerformed
         // TODO add your handling code here:
-        definitionArea.setText("");
-        resultStatusArea.setText("");
-        try {
-            textReader = new BufferedReader(new InputStreamReader(getClass().getResourceAsStream("F:\\Dictionary & Spell Checker\\src\\Dictionary.txt"), "Windows-1252"));
-        } catch (UnsupportedEncodingException ex) {
-            Logger.getLogger(DictionaryAndSpellChecker.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        try {
-            record = textReader.readLine();
-        } catch (IOException ex) {
-            Logger.getLogger(DictionaryAndSpellChecker.class.getName()).log(Level.SEVERE, null, ex);
-        }
         
-        while(record != null){
-            String[] field = record.split("\t");
-            if(wordTextBox.getText().equalsIgnoreCase(field[0])){
-                String[] f = field[1].split("; ");
-                resultStatusArea.setText("The word \"" + wordTextBox.getText() + "\" is correctly spelled.");
-                if(f.length == 1){
-                    definitionArea.setText(definitionArea.getText() + field[1] + "\n");
-                } else {
-                    for(int i = 0; i < (f.length - 1); i++){
-                        definitionArea.setText(definitionArea.getText() + f[i] + "\n");
-                    }
-                }
+        try {
+            // TODO add your handling code here:
+            definitionArea.setText("");
+            resultStatusArea.setText("");
+               textReader = new BufferedReader(new FileReader(new File("C:\\svn\\progAppsProject\\src\\Dictionary.txt")));
                 
-                isCorrectlySpelled = true;
-            }
             try {
                 record = textReader.readLine();
             } catch (IOException ex) {
-                ex.printStackTrace();
+                Logger.getLogger(DictionaryAndSpellChecker.class.getName()).log(Level.SEVERE, null, ex);
+            }
+            String[] wordSplit = wordTextBox.getText().split("");
+            while(record != null){
+                String[] field = record.split("\t");
+                String[] reposSplit = field[0].split("");
+                if(wordSplit[1].compareToIgnoreCase(reposSplit[1]) == 0){
+                    suggestions.add(field[0]);
+                    if(wordTextBox.getText().equalsIgnoreCase(field[0])){
+                        String[] meaning = field[1].split("; ");
+                        resultStatusArea.setText("The word \"" + wordTextBox.getText() + "\" is correctly spelled.");
+                        if(meaning.length == 1){
+                            definitionArea.setText(definitionArea.getText() + field[1] + "\n");
+                        } else {
+                            for(int i = 0; i < (meaning.length - 1); i++){
+                                definitionArea.setText(definitionArea.getText() + meaning[i] + "\n");
+                            }
+                        }
+
+                        isCorrectlySpelled = true;
+                    }
+                    
+                }
+                try {
+                    record = textReader.readLine();
+                } catch (IOException ex) {
+                    ex.printStackTrace();
+                }
+            }
+            
+            if(!isCorrectlySpelled){
+                resultStatusArea.setText("Wrong Spelling. Try to revise the word.\nSuggestions:");
+                for(int j = 2; j <= wordTextBox.getText().length(); j++){
+                copy.clear();
+                for(int i = 0; i < suggestions.size(); i++){
+                    copy.add(suggestions.get(i));
+                }
+                suggestions.clear();
+                for(int k = 0; k < copy.size(); k++){
+                    String[] concatList = copy.get(k).split("");
+                    if(wordTextBox.getText().length() <= copy.get(k).length()  ){
+                        if(wordSplit[j].equalsIgnoreCase(concatList[j])){
+                            suggestions.add(copy.get(k));
+                        }
+                    }
+                }
+            if(suggestions.isEmpty()){
+                break;
             }
         }
-        if(!isCorrectlySpelled){
-            resultStatusArea.setText("Wrong Spelling. Try to revise the word.\nSuggestions:\n");
+                int x;
+                for(x = 0; x < copy.size(); x++){
+                    resultStatusArea.setText(resultStatusArea.getText() + "\n" + copy.get(x));
+                }
+            }
+            isCorrectlySpelled = false;
+        } catch (FileNotFoundException ex) {
+            Logger.getLogger(DictionaryAndSpellChecker.class.getName()).log(Level.SEVERE, null, ex);
         }
-        isCorrectlySpelled = false;
     }//GEN-LAST:event_searchButtonActionPerformed
 
     private void wordTextBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_wordTextBoxActionPerformed
