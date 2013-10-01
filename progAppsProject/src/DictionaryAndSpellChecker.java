@@ -1,4 +1,3 @@
-
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -195,13 +194,13 @@ public class DictionaryAndSpellChecker extends javax.swing.JFrame {
                 if(wordSplit[1].compareToIgnoreCase(lettersSplit[1]) == 0){
                     suggestions.add(field[0]);
                     if(wordTextBox.getText().equalsIgnoreCase(field[0])){
-                        String[] meaning = field[1].split("; ");
+                        String[] definition = field[1].split("; ");
                         resultStatusArea.setText("The word \"" + wordTextBox.getText() + "\" is correctly spelled.");
-                        if(meaning.length == 1){
+                        if(definition.length == 1){
                             definitionArea.setText(definitionArea.getText() + field[1] + "\n");
                         } else {
-                            for(int i = 0; i < (meaning.length - 1); i++){
-                                definitionArea.setText(definitionArea.getText() + meaning[i] + "\n");
+                            for(int i = 0; i < (definition.length - 1); i++){
+                                definitionArea.setText(definitionArea.getText() + definition[i] + "\n");
                             }
                         }
 
@@ -236,9 +235,9 @@ public class DictionaryAndSpellChecker extends javax.swing.JFrame {
             copy();
             suggestions.clear();
             for(int k = 0; k < copy.size(); k++){
-                String[] concatList = copy.get(k).split("");
+                String[] checkLetter = copy.get(k).split("");
                 if(wordTextBox.getText().length() <= copy.get(k).length()  ){
-                    if(word[j].equalsIgnoreCase(concatList[j])){
+                    if(word[j].equalsIgnoreCase(checkLetter[j])){
                         suggestions.add(copy.get(k));
                     }
                 }
@@ -256,34 +255,31 @@ public class DictionaryAndSpellChecker extends javax.swing.JFrame {
     }
     
     public boolean isProcessRunging(String serviceName) throws Exception {
-
-         Process p = Runtime.getRuntime().exec(TASKLIST);
-         BufferedReader reader = new BufferedReader(new InputStreamReader(
-           p.getInputStream()));
-         String line;
-         while ((line = reader.readLine()) != null) {
+        Process processes = Runtime.getRuntime().exec(TASKLIST);
+        BufferedReader reader = new BufferedReader(new InputStreamReader(
+        processes.getInputStream()));
+        String line;
+        while ((line = reader.readLine()) != null) {
           if (line.contains(serviceName)) {
-           return true;
+            return true;
           } 
-         }
-
-         return false;
-
+        }
+        return false;
     }
     
     private void wordTextBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_wordTextBoxActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_wordTextBoxActionPerformed
 
-private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-// TODO add your handling code here:
-    boolean isOnList = false;
-    boolean counter =true;
-    JOptionPane message = new JOptionPane();
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    // TODO add your handling code here:
+        boolean isOnList = false;
+        boolean isRunning =true;
+        JOptionPane message = new JOptionPane();
         String serviceName = "notepad++.exe";
         message.showMessageDialog(null, "Please Follow the format:\n<WORD><tab><MEANING>\n\nPlease use ';' to separate one meaning to the other.\nClose Notepad after you saved the textfile.",
-                                        "Input Format",JOptionPane.PLAIN_MESSAGE);
-	Runtime run = Runtime.getRuntime();
+                                            "Input Format",JOptionPane.PLAIN_MESSAGE);
+        Runtime run = Runtime.getRuntime();
         try {
             Process process = run.exec("C:\\Program Files (x86)\\Notepad++\\notepad++.exe C:\\svn\\progAppsProject\\src\\Dictionary.txt");
         } catch (IOException ex) {
@@ -294,9 +290,9 @@ private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRS
                 isOnList = isProcessRunging(serviceName);
                 setVisible(!isOnList);
                 if(!isOnList){
-                    counter = isOnList;
+                    isRunning = isOnList;
                 }
-                if(!isOnList && !counter){
+                if(!isOnList && !isRunning){
                     break;
                 }
             } catch (Exception ex) {
@@ -304,7 +300,7 @@ private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRS
             }
         }
         clear();
-}//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_jButton1ActionPerformed
     
     private void clear(){
         definitionArea.setText("");
