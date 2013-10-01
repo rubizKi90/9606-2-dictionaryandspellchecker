@@ -171,6 +171,10 @@ public class DictionaryAndSpellChecker extends javax.swing.JFrame {
 
     private void searchButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_searchButtonActionPerformed
         // TODO add your handling code here:
+        search();
+    }//GEN-LAST:event_searchButtonActionPerformed
+    
+    private void search(){
         
         try {
             // TODO add your handling code here:
@@ -213,24 +217,7 @@ public class DictionaryAndSpellChecker extends javax.swing.JFrame {
             
             if(!isCorrectlySpelled){
                 resultStatusArea.setText("Wrong Spelling. Try to revise the word.\nSuggestions:");
-                for(int j = 2; j <= wordTextBox.getText().length(); j++){
-                copy.clear();
-                for(int i = 0; i < suggestions.size(); i++){
-                    copy.add(suggestions.get(i));
-                }
-                suggestions.clear();
-                for(int k = 0; k < copy.size(); k++){
-                    String[] concatList = copy.get(k).split("");
-                    if(wordTextBox.getText().length() <= copy.get(k).length()  ){
-                        if(wordSplit[j].equalsIgnoreCase(concatList[j])){
-                            suggestions.add(copy.get(k));
-                        }
-                    }
-                }
-            if(suggestions.isEmpty()){
-                break;
-            }
-        }
+                suggestWord(wordSplit);
                 int x;
                 for(x = 0; x < copy.size(); x++){
                     resultStatusArea.setText(resultStatusArea.getText() + "\n" + copy.get(x));
@@ -240,8 +227,32 @@ public class DictionaryAndSpellChecker extends javax.swing.JFrame {
         } catch (FileNotFoundException ex) {
             Logger.getLogger(DictionaryAndSpellChecker.class.getName()).log(Level.SEVERE, null, ex);
         }
-    }//GEN-LAST:event_searchButtonActionPerformed
-
+    }
+    
+    private void suggestWord(String [] word){
+        for(int j = 2; j <= wordTextBox.getText().length(); j++){
+            copy.clear();
+            copy();
+            suggestions.clear();
+            for(int k = 0; k < copy.size(); k++){
+                String[] concatList = copy.get(k).split("");
+                if(wordTextBox.getText().length() <= copy.get(k).length()  ){
+                    if(word[j].equalsIgnoreCase(concatList[j])){
+                        suggestions.add(copy.get(k));
+                    }
+                }
+            }
+            if(suggestions.isEmpty()){
+                break;
+            }
+        }
+    }
+    private void copy(){
+        for(int i = 0; i < suggestions.size(); i++){
+            copy.add(suggestions.get(i));
+        }
+        
+    }
     private void wordTextBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_wordTextBoxActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_wordTextBoxActionPerformed
