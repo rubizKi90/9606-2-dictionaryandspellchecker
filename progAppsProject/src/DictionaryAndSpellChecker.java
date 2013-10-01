@@ -10,6 +10,7 @@ import java.io.UnsupportedEncodingException;
 import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JOptionPane;
 
 /*
  * To change this template, choose Tools | Templates
@@ -27,6 +28,7 @@ public class DictionaryAndSpellChecker extends javax.swing.JFrame {
     private boolean isCorrectlySpelled = false;
     private ArrayList<String> suggestions = new ArrayList<>();
     private ArrayList<String> copy = new ArrayList<>();
+    private String TASKLIST = "tasklist.exe";
 
     /**
      * Creates new form DictionaryAndSpellChecker
@@ -57,6 +59,7 @@ public class DictionaryAndSpellChecker extends javax.swing.JFrame {
         definitionArea = new javax.swing.JTextArea();
         clearButton = new javax.swing.JButton();
         wordTextBox = new javax.swing.JTextField();
+        jButton1 = new javax.swing.JButton();
         jLabel5 = new javax.swing.JLabel();
 
         jToggleButton1.setText("jToggleButton1");
@@ -113,7 +116,7 @@ public class DictionaryAndSpellChecker extends javax.swing.JFrame {
 
         definitionArea.setColumns(20);
         definitionArea.setEditable(false);
-        definitionArea.setFont(new java.awt.Font("Monospaced", 0, 15)); // NOI18N
+        definitionArea.setFont(new java.awt.Font("Monospaced", 0, 15));
         definitionArea.setRows(5);
         definitionArea.setAutoscrolls(false);
         jScrollPane2.setViewportView(definitionArea);
@@ -122,7 +125,7 @@ public class DictionaryAndSpellChecker extends javax.swing.JFrame {
         jScrollPane2.setBounds(10, 290, 440, 150);
         jLayeredPane1.add(jScrollPane2, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
-        clearButton.setFont(new java.awt.Font("Tahoma", 1, 14));
+        clearButton.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         clearButton.setText("Clear");
         clearButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -142,6 +145,16 @@ public class DictionaryAndSpellChecker extends javax.swing.JFrame {
         wordTextBox.setBounds(60, 40, 280, 40);
         jLayeredPane1.add(wordTextBox, javax.swing.JLayeredPane.DEFAULT_LAYER);
         wordTextBox.getAccessibleContext().setAccessibleName("wordTextBox");
+
+        jButton1.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jButton1.setText("Add Word");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+        jButton1.setBounds(110, 450, 110, 25);
+        jLayeredPane1.add(jButton1, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
         jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/3d-clip-art-of-3d-random-silver-letters-on-a-white-background-by-jiri-moucka-20.jpg"))); // NOI18N
         jLabel5.setBounds(0, 0, 470, 490);
@@ -177,7 +190,6 @@ public class DictionaryAndSpellChecker extends javax.swing.JFrame {
     private void search(){
         
         try {
-            // TODO add your handling code here:
             definitionArea.setText("");
             resultStatusArea.setText("");
                textReader = new BufferedReader(new FileReader(new File("C:\\svn\\progAppsProject\\src\\Dictionary.txt")));
@@ -253,9 +265,57 @@ public class DictionaryAndSpellChecker extends javax.swing.JFrame {
         }
         
     }
+    
+    public boolean isProcessRunging(String serviceName) throws Exception {
+
+         Process p = Runtime.getRuntime().exec(TASKLIST);
+         BufferedReader reader = new BufferedReader(new InputStreamReader(
+           p.getInputStream()));
+         String line;
+         while ((line = reader.readLine()) != null) {
+
+          System.out.println(line);
+          if (line.contains(serviceName)) {
+           return true;
+          } 
+         }
+
+         return false;
+
+}
+    
     private void wordTextBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_wordTextBoxActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_wordTextBoxActionPerformed
+
+private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+// TODO add your handling code here:
+    boolean isOnList = false;
+    boolean counter =true;
+        String serviceName = "notepad++.exe";
+        JOptionPane.showMessageDialog(null, "Please Follow the format:\n<WORD><tab><MEANING>\n\nPlease use ';' to separate one meaning to the other.\nClose Notepad after you saved the textfile.",
+                                        "Input Format",JOptionPane.PLAIN_MESSAGE);
+	Runtime run = Runtime.getRuntime();
+        try {
+            Process process = run.exec("C:\\Program Files (x86)\\Notepad++\\notepad++.exe C:\\svn\\progAppsProject\\src\\Dictionary.txt");
+        } catch (IOException ex) {
+            ex.printStackTrace();
+        }
+        while(true){
+            try {
+                isOnList = isProcessRunging(serviceName);
+                setVisible(!isOnList);
+                if(!isOnList){
+                    counter = isOnList;
+                }
+                if(!isOnList && !counter){
+                    break;
+                }
+            } catch (Exception ex) {
+                ex.printStackTrace();
+            }
+        }
+}//GEN-LAST:event_jButton1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -294,6 +354,7 @@ public class DictionaryAndSpellChecker extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton clearButton;
     private javax.swing.JTextArea definitionArea;
+    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
