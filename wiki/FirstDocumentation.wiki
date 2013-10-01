@@ -7,4 +7,4 @@ Utility programs, commonly referred to as just "utilities," are software program
 Dictionary and Spell checker is a utility program that allows a user to search a word and provide its definition. If a word is entered and is spelled correctly, a definition or definitions would be shown. If the searched word is misspelled, there will be a list of suggested words that are close to the entered word.
 
 A dictionary is a compilation of words ranging from letters A-Z. 
-Primarily, its purpose is to give meanings to words. 
+Primarily, its purpose is to give meanings to words and help you to spell correctly a particular word especially when you really don't know its spelling.
