@@ -8,7 +8,7 @@ https://fbcdn-sphotos-h-a.akamaihd.net/hphotos-ak-ash3/q71/1379752_7298908403602
 
 The second interface shows the result after clicking the 'Search' button. The Result field shows if the user has correctly spelled the word. Then the Definition field will provide the correct meaning of the entered word. 
 
-We used the word "dictionary" for the testing of the program. Thanks to our programmer, it worked! The program verified that the word is correctly spelled and it gave the definition of the chosen word.
+We used the word "dictionary" for the testing of the program. The program verified that the word is correctly spelled and it gave the definition of the chosen word.
 
 https://fbcdn-sphotos-b-a.akamaihd.net/hphotos-ak-ash4/q71/1239982_729891550360130_1968173990_n.jpg
 
@@ -22,6 +22,6 @@ The user of the program can add certain words to the program's database of words
 
 https://fbcdn-sphotos-e-a.akamaihd.net/hphotos-ak-ash3/q71/558346_729896033693015_81075809_n.jpg
 
-After the user clicked the 'OK' button in the fourth interface, the fifth interface will show. It will show the text file that represents the dictionary's database. The user can now placed other words which is not present in the default database. After the user saved and exit the file, the user will go back to the main interface.
+After the user clicked the 'OK' button in the fourth interface, the fifth interface will show. It will show the text file that represents the dictionary's database. The user can now place other words which is not present in the default database. After the user saved and exit the file, the user will go back to the main interface.
 
 https://fbcdn-sphotos-a-a.akamaihd.net/hphotos-ak-prn1/q71/s720x720/1010060_729902330359052_1903885080_n.jpg
