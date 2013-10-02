@@ -6,4 +6,17 @@ Utility programs, commonly referred to as just "utilities," are software program
 
 Dictionary and Spell checker is a utility program that allows a user to search a word and provide its definition. If a word is entered and is spelled correctly, a definition or definitions would be shown. If the searched word is misspelled, there will be a list of suggested words that are close to the entered word.
 
-A Dictionary is a reference book that lists the words of language in alphabetical order and gives their meaning and gives the forms in the different forms of speech, i.e. noun, adjective, etc. Other languages have their own word dictionaries which have translations to the English language. Example, English - Tagalog Dictionary. 
+A Dictionary is a reference book that lists the words of language in alphabetical order and gives their meaning and gives the forms in the different forms of speech, i.e. noun, adjective, etc. Other languages have their own word dictionaries which have translations to the English language. Example, English - Tagalog Dictionary.
+
+=Details=
+
+*BUTTONS*
+
+_Search Button_
+ - When this button is pressed, the word that you wish to find its definition will come out as its output.
+
+_Add Word Button_
+ - 
+
+_Clear Button_
+ -
