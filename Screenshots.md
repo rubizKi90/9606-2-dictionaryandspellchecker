@@ -1,0 +1,27 @@
+Describes the results and uses of each interface.
+
+# Screenshots #
+
+The first interface shows the main preview of the program. The fields are still blank. The user of the application will input a word in the first text field and then click the 'Search' button.
+
+![https://fbcdn-sphotos-h-a.akamaihd.net/hphotos-ak-ash3/q71/1379752_729890840360201_363491154_n.jpg](https://fbcdn-sphotos-h-a.akamaihd.net/hphotos-ak-ash3/q71/1379752_729890840360201_363491154_n.jpg)
+
+The second interface shows the result after clicking the 'Search' button. The Result field shows if the user has correctly spelled the word. Then the Definition field will provide the correct meaning of the entered word.
+
+We used the word "dictionary" for the testing of the program. The program verified that the word is correctly spelled and it gave the definition of the chosen word.
+
+![https://fbcdn-sphotos-b-a.akamaihd.net/hphotos-ak-ash4/q71/1239982_729891550360130_1968173990_n.jpg](https://fbcdn-sphotos-b-a.akamaihd.net/hphotos-ak-ash4/q71/1239982_729891550360130_1968173990_n.jpg)
+
+The third interface shows the result of the user after clicking the 'Search' button but the inputted word was spelled incorrectly. The result field will show the user that the word in incorrectly spelled and it will show other suggestions of the word the user wants to know.
+
+We used the word "pulchrade" to test the correctness of the program. And it worked! The program showed that the word inputted is incorrectly spelled and it provided some close words (which are correctly spelled) as suggestions.
+
+![https://fbcdn-sphotos-c-a.akamaihd.net/hphotos-ak-ash3/q71/1383000_729892457026706_1913054622_n.jpg](https://fbcdn-sphotos-c-a.akamaihd.net/hphotos-ak-ash3/q71/1383000_729892457026706_1913054622_n.jpg)
+
+The user of the program can add certain words to the program's database of words. The user can now click the 'Add Word' button provided in the interface then the fourth interface will show up. It shows the instructions on how to populate the dictionary's database.
+
+![https://fbcdn-sphotos-e-a.akamaihd.net/hphotos-ak-ash3/q71/558346_729896033693015_81075809_n.jpg](https://fbcdn-sphotos-e-a.akamaihd.net/hphotos-ak-ash3/q71/558346_729896033693015_81075809_n.jpg)
+
+After the user clicked the 'OK' button in the fourth interface, the fifth interface will show. It will show the text file that represents the dictionary's database. The user can now place other words which is not present in the default database. After the user saved and exit the file, the user will go back to the main interface.
+
+![https://fbcdn-sphotos-a-a.akamaihd.net/hphotos-ak-prn1/q71/s720x720/1010060_729902330359052_1903885080_n.jpg](https://fbcdn-sphotos-a-a.akamaihd.net/hphotos-ak-prn1/q71/s720x720/1010060_729902330359052_1903885080_n.jpg)

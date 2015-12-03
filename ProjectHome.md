@@ -1,0 +1,1 @@
+This program utilizes the functionality of a dictionary. It also checks the spelling of a word and gives the user related words in terms of its meaning and usage. It also suggest other words when the searched word is incorrectly spelled.
